@@ -37,7 +37,7 @@ function item(document, count, name, value) {
     countItem.className = 'item-count roboto-mono-font';
     
     let nameItem = document.createElement('p');
-    nameItem.innerHTML = name;
+    nameItem.innerHTML = name.toUpperCase();
     nameItem.className = 'item-name roboto-mono-font';
 
     let spacerItem = document.createElement('div');

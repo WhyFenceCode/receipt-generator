@@ -67,15 +67,17 @@ body {
 
 .horizontal-divider {
     width: 100%;
-    height: 10px;
-    border-style: dashed none;
+    height: 0px;
+    border-style: dashed none none none;
     border-width: 2px;
     border-color: black;
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 
 .item-wrapper {
     width: 100%;
-    height: 48px;
+    height: 24px;
     display: flex;
     align-items: center;
 }
@@ -97,7 +99,15 @@ body {
             <div class="logo-wrapper">
                 <div class="logo"></div>
             </div>
-            <div id="content" class="content"></div>
+            <div id="content" class="content">
+                <div class="horizontal-divider"></div>
+                <div class="item-wrapper">
+                    <p class="item-count roboto-mono-font">QTY</p>
+                    <p class="roboto-mono-font" >ITEM</p>
+                    <div class="item-spacer" ></div>
+                    <p class="roboto-mono-font" >AMT</p>
+                </div>
+            </div>
         </div>
     </div>
 </body>
