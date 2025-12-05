@@ -1,4 +1,3 @@
-// File to turn HTML into image buffer
 import nodeHtmlToImage from 'node-html-to-image';
 
 export async function generateImageFromHTML(html, outputPath, width, height) {
