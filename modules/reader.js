@@ -43,7 +43,7 @@ async function multiSloc(data) {
 
     const output = {};
     for (const item of processed) {
-        output[`"${item.key}"`] = item.value;
+        output[`${item.key}`] = item.value;
     }
 
     return output;
