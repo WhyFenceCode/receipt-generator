@@ -17,5 +17,10 @@ const test_multiSloc = {
         "https://github.com/WhyFenceCode/receipt-generator",
     ]
 }
-
-buildHtml();
+const data = {
+  'facebook/react': 1057177,
+  'WhyFenceCode/receipt-generator': 699359,
+  'IrisShaders/docs': 70014
+};
+console.log(data);
+buildHtml(data);
