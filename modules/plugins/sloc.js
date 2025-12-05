@@ -8,9 +8,15 @@ import path from "path";
 const execFileAsync = promisify(execFile);
 
 async function runCloc(dir) {
-  const { stdout } = await execFileAsync("npx", ["cloc", dir, "--json"], {
+  const { stdout } = await execFileAsync("npx", [
+    "cloc",
+    dir,
+    "--json",
+    "--exclude-dir=node_modules"
+  ], {
     maxBuffer: 1024 * 1024 * 10
   });
+
   return JSON.parse(stdout);
 }
 

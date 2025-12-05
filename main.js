@@ -18,7 +18,7 @@ const test_multiSloc = {
         "https://github.com/WhyFenceCode/receipt-generator",
     ]
 }
-const data = await handleWrapper(test_multiSloc);
+const data = await handleWrapper(test_monoSloc);
 console.log(data);
 const htmlData = buildHtml(data);
 console.log(htmlData);

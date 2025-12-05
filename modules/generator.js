@@ -10,15 +10,19 @@ export function buildHtml(data){
     content.appendChild(horizontalDivider(document));
 
     let i = 0;
+    let total = 0;
     for (const key in data) {
         if (data.hasOwnProperty(key)) {
             i++;
+            total += data[key];
             content.appendChild(item(document, i, key, data[key]));
         }
     }
 
     content.appendChild(horizontalDivider(document));
-
+    content.appendChild(lineCount(document, i));
+    content.appendChild(totalCount(document, total));
+    content.appendChild(horizontalDivider(document));
     return [dom, i];
 }
 
@@ -48,6 +52,50 @@ function item(document, count, name, value) {
     valueItem.className = 'item-value roboto-mono-font';
 
     div.appendChild(countItem);
+    div.appendChild(nameItem);
+    div.appendChild(spacerItem);
+    div.appendChild(valueItem);
+
+    return div;
+}
+
+function lineCount(document, value) {
+    let div = document.createElement('div');
+    div.className = 'item-wrapper roboto-mono-font';
+
+    let nameItem = document.createElement('p');
+    nameItem.innerHTML = "ITEM COUNT";
+    nameItem.className = 'item-count roboto-mono-font';
+
+    let spacerItem = document.createElement('div');
+    spacerItem.className = 'item-spacer';
+
+    let valueItem = document.createElement('div');
+    valueItem.innerHTML = value;
+    valueItem.className = 'item-value roboto-mono-font';
+
+    div.appendChild(nameItem);
+    div.appendChild(spacerItem);
+    div.appendChild(valueItem);
+
+    return div;
+}
+
+function totalCount(document, value) {
+    let div = document.createElement('div');
+    div.className = 'item-wrapper roboto-mono-font';
+
+    let nameItem = document.createElement('p');
+    nameItem.innerHTML = "TOTAL";
+    nameItem.className = 'item-count roboto-mono-font large';
+
+    let spacerItem = document.createElement('div');
+    spacerItem.className = 'item-spacer';
+
+    let valueItem = document.createElement('div');
+    valueItem.innerHTML = value;
+    valueItem.className = 'item-value roboto-mono-font large';
+
     div.appendChild(nameItem);
     div.appendChild(spacerItem);
     div.appendChild(valueItem);
