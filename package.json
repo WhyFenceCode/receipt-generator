@@ -1,5 +1,5 @@
 {
-  "name": "recipt-generator",
+  "name": "receipt-generator",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,6 +11,10 @@
   "license": "ISC",
   "packageManager": "pnpm@10.19.0",
   "dependencies": {
-    "node-html-to-image": "^5.0.0"
+    "cloc": "2.6.0-cloc",
+    "install": "^0.13.0",
+    "node-html-to-image": "^5.0.0",
+    "simple-git": "^3.30.0",
+    "tmp": "^0.2.5"
   }
 }
