@@ -22,4 +22,4 @@ const data = await handleWrapper(test_monoSloc);
 console.log(data);
 const htmlData = buildHtml(data);
 console.log(htmlData);
-const buffer = await generateImageFromHTML(htmlData[0], 430, (298 + 24 + 28 * (htmlData[1]+1) ));
+const buffer = await generateImageFromHTML(htmlData[0], 430, 298 + 24 + (28 * (htmlData[1]+1)));

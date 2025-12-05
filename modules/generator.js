@@ -6,6 +6,7 @@ export function buildHtml(data){
     const dom = new JSDOM(html);
     let document = dom.window.document;
     const content = document.querySelector("#content");
+    const container = document.querySelector("#container");
 
     content.appendChild(horizontalDivider(document));
 
