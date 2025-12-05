@@ -1,19 +1,20 @@
 //File to tie together
 
 //SLOC TEST FOR NOW
-import {countTotalLines, countLinesByLanguage} from './modules/plugins/sloc.js';
+import {handleWrapper} from './modules/reader.js'
 
-
-async function test() {
-  const repo = "https://github.com/facebook/react";
-
-  console.log("Counting by language...");
-  const langStats = await countLinesByLanguage(repo);
-  console.log(langStats);
-
-  console.log("Counting total lines...");
-  const total = await countTotalLines(repo);
-  console.log("Total lines:", total);
+const test_monoSloc = {
+    type: "sloc_mono",
+    repo: "https://github.com/facebook/react",
 }
 
-test();
+const test_multiSloc = {
+    type: "sloc_multi",
+    repos: [
+        "https://github.com/facebook/react",
+        "https://github.com/IrisShaders/docs",
+        "https://github.com/WhyFenceCode/receipt-generator",
+    ]
+}
+
+console.log(await handleWrapper(test_multiSloc));
