@@ -21,13 +21,30 @@ async function cloneRepo(repoUrl) {
   return tmpDir;
 }
 
+export function simplifyClocOutput(clocJson) {
+  const temp = [];
+
+  for (const [lang, stats] of Object.entries(clocJson)) {
+    if (lang === "header" || lang === "SUM") continue;
+
+    if (typeof stats === "object" && "code" in stats && "comment" in stats) {
+      temp.push([lang, stats.code + stats.comment]);
+    }
+  }
+
+  temp.sort((a, b) => b[1] - a[1]);
+
+  return Object.fromEntries(temp);
+}
+
+
 export async function countLinesByLanguage(repoUrl) {
   const tmpDir = await cloneRepo(repoUrl);
-  const result = await runCloc(tmpDir.name);
+  const raw = await runCloc(tmpDir.name);
 
   tmpDir.removeCallback();
 
-  return result;
+  return simplifyClocOutput(raw);
 }
 
 function countLinesInFile(filePath) {
