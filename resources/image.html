@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Template</title>
+    <style>
+.container { 
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 32px 1fr 32px;
+    grid-template-rows: 64px 1fr 64px;
+    grid-auto-columns: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        ". . ."
+        ". wrapper ."
+        ". . .";
+}
+
+.wrapper {  
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 164px 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "logo-wrapper"
+        "content";
+    grid-area: wrapper;
+}
+
+.content { grid-area: content; }
+
+.logo-wrapper {  
+    display: grid;
+    grid-template-columns: 32px 1fr 32px;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        ". logo .";
+    grid-area: logo-wrapper;
+}
+
+.logo { grid-area: logo; }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="logo-wrapper">
+            <div class="logo"></div>
+            <div id="content" class="content">
+                
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

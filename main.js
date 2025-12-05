@@ -2,6 +2,7 @@
 
 //SLOC TEST FOR NOW
 import {handleWrapper} from './modules/reader.js'
+import {buildHtml} from './modules/generator.js'
 
 const test_monoSloc = {
     type: "sloc_mono",
@@ -17,4 +18,4 @@ const test_multiSloc = {
     ]
 }
 
-console.log(await handleWrapper(test_multiSloc));
+buildHtml();
