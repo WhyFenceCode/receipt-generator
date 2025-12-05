@@ -30,8 +30,8 @@ async function monoSloc(data){
 async function multiSloc(data) {
     const processed = await Promise.all(
         data.repos.map(async (name) => {
-            const parts = name.split("https://github.com/");
-            const key = parts.slice(1).join("https://github.com/");
+            const parts = name.split("/");
+            const key = parts.pop();
 
             const value = await countTotalLines(name);
 

@@ -19,11 +19,11 @@ const test_multiSloc = {
     ]
 }
 const data = {
-  'facebook/react': 1057177,
-  'WhyFenceCode/receipt-generator': 699359,
-  'IrisShaders/docs': 70014
+  'react': 1057177,
+  'receipt-generator': 699359,
+  'docs': 70014
 };
 console.log(data);
 const htmlData = buildHtml(data);
 console.log(htmlData);
-const buffer = await generateImageFromHTML(htmlData[0], 430, (228 + 32 * htmlData[1] ));
+const buffer = await generateImageFromHTML(htmlData[0], 430, (312 + 48 * htmlData[1] ));

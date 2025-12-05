@@ -1,7 +1,7 @@
 import puppeteer from 'puppeteer';
+import { JSDOM } from "jsdom";
 
 export async function generateImageFromHTML(domNode, width, height) {
-  const html = domNode.outerHTML;
   const browser = await puppeteer.launch({
     headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
@@ -11,11 +11,12 @@ export async function generateImageFromHTML(domNode, width, height) {
 
   const page = await browser.newPage();
   await page.setViewport({ 
-    width: Math.floor(width), 
-    height: Math.floor(height) 
+    width, 
+    height 
   });
-  await page.setContent(html);
-  await page.screenshot({ path: 'test.png' });
+  const html = domNode.serialize();
+  await page.setContent(html, { waitUntil: 'networkidle0' });
+  await page.screenshot({ path: './output/output.png' });
 
   await browser.close();
 }
