@@ -60,7 +60,7 @@ function countLinesRecursively(dir) {
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
 
-    if (entry.name === ".git") continue;
+    if (entry.name === ".git" || entry.name === "node_modules") continue;
 
     if (entry.isDirectory()) {
       total += countLinesRecursively(fullPath);
