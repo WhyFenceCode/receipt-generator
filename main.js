@@ -3,6 +3,7 @@
 //SLOC TEST FOR NOW
 import {handleWrapper} from './modules/reader.js'
 import {buildHtml} from './modules/generator.js'
+import {generateImageFromHTML} from './modules/buffer.js'
 
 const test_monoSloc = {
     type: "sloc_mono",
@@ -23,4 +24,6 @@ const data = {
   'IrisShaders/docs': 70014
 };
 console.log(data);
-buildHtml(data);
+const htmlData = buildHtml(data);
+console.log(htmlData);
+const buffer = await generateImageFromHTML(htmlData[0], 430, (228 + 32 * htmlData[1] ));

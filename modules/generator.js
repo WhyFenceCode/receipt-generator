@@ -9,18 +9,17 @@ export function buildHtml(data){
 
     content.appendChild(horizontalDivider(document));
 
-    let i = 1;
+    let i = 0;
     for (const key in data) {
         if (data.hasOwnProperty(key)) {
-            content.appendChild(item(document, i, key, data[key]));
             i++;
+            content.appendChild(item(document, i, key, data[key]));
         }
     }
 
     content.appendChild(horizontalDivider(document));
 
-
-    console.log(content.innerHTML);
+    return [dom, i];
 }
 
 function horizontalDivider(document) {

@@ -1,6 +1,7 @@
 {
   "name": "receipt-generator",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -14,7 +15,7 @@
     "cloc": "2.6.0-cloc",
     "install": "^0.13.0",
     "jsdom": "^27.2.0",
-    "node-html-to-image": "^5.0.0",
+    "puppeteer": "^24.32.0",
     "simple-git": "^3.30.0",
     "tmp": "^0.2.5"
   }
